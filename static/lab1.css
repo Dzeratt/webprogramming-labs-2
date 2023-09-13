@@ -1,0 +1,53 @@
+body, html {
+    background: linear-gradient(black, gold, green);
+    height: 100%;
+}
+
+.header {
+    height: 100px;
+    background: linear-gradient(black, gold, blue);
+    color: red;
+    font-weight: bold;
+}
+
+.footer {
+    background: linear-gradient(black, gold, blue);
+    color: red;
+    font-weight: bold;
+}
+
+#style_oak img {
+    text-align: center;
+    width: 1000px;
+}
+
+#style_nstu img {
+    text-align: center;
+    width: 1000px;
+}
+
+
+#page_name {
+    color: aliceblue;
+    text-align: center;
+}
+
+.phyton_txt {
+    color: aliceblue;
+    font-size: 14px;
+    margin-top: 10px;
+}
+#style_phyton img {
+    text-align: center;
+    width: 1000px;
+}
+
+.something_txt {
+    color: aliceblue;
+    font-size: 14px;
+    margin-top: 10px;
+}
+#style_something img {
+    text-align: center;
+    width: 500px;
+}
