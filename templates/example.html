@@ -21,6 +21,12 @@
             <li>{{i.name}}: {{i.price}} &#8381;</li>
             {%endfor%}
         </ul>
+
+        <ul>
+            {%for i  in books%}
+            <li>{{i.name}} - {{i.author}},  страниц: {{i.pages}}, жанр: {{i.genre}}</li>
+            {%endfor%}
+        </ul>
     </main>
     <footer>
         &copy;
