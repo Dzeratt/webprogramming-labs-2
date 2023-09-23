@@ -189,4 +189,7 @@ def something():
 @app.route('/lab2/example')
 def example():
      name = 'Денис Духов'
-     return render_template('example.html', name=name)
+     lab_number = '2'
+     group = 'ФБИ-13'
+     course = '3 курс'
+     return render_template('example.html', name=name, lab_number = lab_number, group =group, course=course)
