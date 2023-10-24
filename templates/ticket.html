@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+{%block lab%}Лабораторная работа 3{%endblock%}
+
+{%block main%}
+    <h1>Билет</h1>
+
+    <form action="/lab3/ticketsorder">
+
+        <h2>Данные билета:</h2>
+        <div>ФИО: {{user}}</div>
+        <div>Тип: {{'детский' if type == 'child' else 'взрослый'}}</div>
+        <div>Полка: {{'нижняя' if place == 'down' else 'верхняя' if place == 'up' else 'верхняя боковая' if place == 'up_side' else 'нижняя боковая'}}</div>
+        <div>Багаж: {{'да' if baggage == 'baggage_yes' else 'нет'}}</div>
+        <div>Возраст: {{age}}</div>
+        <div>Пункт выезда: {{pv}}</div>
+        <div>Пункт назначения: {{pn}}</div>
+        <div>Дата поездки: {{date}}</div>
+
+
+
+
+
+    </form>
+
+{%endblock%}

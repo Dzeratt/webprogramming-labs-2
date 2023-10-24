@@ -1,0 +1,69 @@
+{%extends "base.html"%}
+
+{%block lab%}Лабораторная работа 3{%endblock%}
+
+{%block main%}
+    <h1>Заказ билета</h1>
+
+    <form action="/lab3/ticket">
+
+        <div>ФИО:</div>
+        <label>
+            <input type="text" name="user" required>
+        </label> 
+
+
+        <div>Тип:</div>
+        <label>
+            <select name="type">
+                <option value="child">детский</option>
+                <option value="adult">взрослый</option>
+            </select>
+        </label> 
+
+
+        <div>Полка:</div>
+        <label>
+            <select name="place">
+                <option value="down" >нижняя</option>
+                <option value="up">верхняя</option>
+                <option value="up_side">верхняя боковая</option>
+                <option value="down_side">нижняя боковая</option>
+            </select>
+        </label>
+
+        <div>Багаж:</div>
+        <label>
+            <select name="baggage">
+                <option value="baggage_yes" >да</option>
+                <option value="baggage_no">нет</option>
+            </select>
+        </label> 
+
+        <div>Возраст:</div>
+        <label>
+            <input type="number" name="age" min="18" max="120" required>
+        </label> 
+
+        <div>Пункт выезда:</div>
+        <label>
+            <input type="text" name="pv" required>
+        </label> 
+
+        <div>Пункт назначения:</div>
+        <label>
+            <input type="text" name="pn" required>
+        </label> 
+
+        <div>Дата поездки:</div>
+        <label>
+            <input type="date" name="datetime" required>
+        </label> 
+
+
+        <div>
+            <button type="submit">Заказать</button>
+        </div>
+
+    </form>
+{%endblock%}

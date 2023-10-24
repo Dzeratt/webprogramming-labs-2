@@ -43,3 +43,25 @@ def pay():
 @lab3.route('/lab3/success')
 def success():
     return render_template('success.html')
+
+
+@lab3.route('/lab3/tiketsorder')
+def tiketsorder():
+    errors = {}
+    user = request.args.get('user')
+    if user == '':
+        errors['user'] = 'Заполните поле'
+
+    return render_template('tiketsorder.html', user=user, errors=errors)
+
+@lab3.route('/lab3/ticket')
+def ticket():
+    user = request.args.get('user')
+    type = request.args.get('type')
+    place = request.args.get('place')
+    baggage = request.args.get('baggage')
+    age = request.args.get('age')
+    pv = request.args.get('pv')
+    pn = request.args.get('pn')
+    date = request.args.get('datetime')
+    return render_template('ticket.html', user=user, type=type, place=place, baggage=baggage, age=age, pv=pv, pn=pn, date=date)
