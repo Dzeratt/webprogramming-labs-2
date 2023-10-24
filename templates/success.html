@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+
+{%block lab%}Лабораторная работа 3{%endblock%}
+
+{%block main%}
+    <h1>Успех</h1>
+
+    <h2>Спасибо, ваш заказ оплачен, ожидайте доставку</h2>
+    
+    <form action="/lab3/order">
+        <div>
+            <button type="submit">К заказу</button>
+        </div>
+    </form>
+    {%endblock%}
