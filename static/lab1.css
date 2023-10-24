@@ -1,19 +1,29 @@
 body, html {
-    background: linear-gradient(black, gold, green);
+    background: rgb(195, 195, 195);
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
     height: 100px;
-    background: linear-gradient(black, gold, blue);
-    color: red;
+    background:  rgb(140, 0, 0);
+    color: rgb(195, 195, 195);
     font-weight: bold;
+    text-align: center;
+    line-height: 100px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
 
 .footer {
-    background: linear-gradient(black, gold, blue);
-    color: red;
-    font-weight: bold;
+    background: rgb(140, 0, 0);
+    color: rgb(195, 195, 195);
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #style_oak img {
