@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+
+{%block lab%}Лабораторная работа 3{%endblock%}
+
+{%block main%}
+    <form action="/lab4/login">
+        <h1>Успех</h1>
+        <div>Здравствуйте, {{username}}! Вы успешно вошли, поздравляем</div>
+        <button type="back">Назад</button>
+    </form>
+{%endblock%}
