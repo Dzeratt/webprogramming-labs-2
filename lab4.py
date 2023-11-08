@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, redirect,render_template, request
 lab4 = Blueprint('lab4', __name__)
 
 @lab4.route('/lab4/')
@@ -88,12 +88,25 @@ def order_grain():
 
 @lab4.route('/lab4/cookies', methods=['GET', 'POST'])
 def cookies():
-    if request.method == "GET":
-        return render_template('cookies.html')
-    
-    color = request.form.get('color')
-    headers = {
-        'Set-Cookie': 'color=' + color + '; path=/',
-        'Location': '/lab4/cookies'
-    }
-    return '', 303, headers
+    error = None 
+
+    if request.method == 'POST':
+        color = request.form.get('color')
+        bg_color = request.form.get('bg_color')
+        font_size = request.form.get('font_size')
+
+        if color == bg_color:
+            error = "Цвет текста не должен совпадать с цветом фона."
+
+        font_size = int(font_size)
+        if font_size < 5 or font_size > 30:
+            error = "Размер шрифта должен быть от 5px до 30px."
+
+        if error is None:
+            response = redirect('/lab4/cookies')
+            response.set_cookie('color', color)
+            response.set_cookie('bg_color', bg_color)
+            response.set_cookie('font_size', str(font_size))
+            return response
+
+    return render_template('cookies.html', error=error)

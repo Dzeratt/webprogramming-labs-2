@@ -10,10 +10,19 @@
         <div>
             <label for="color">Выберите цвет:</label>
             <input type="color" id="color" name="color">
+
+            <label for="bg_color">Выберите цвет фона:</label>
+            <input type="color" id="bg_color" name="bg_color">
+
+            <label for="font_size">Выберите размер шрифта (5-30px):</label>
+            <input type="number" id="font_size" name="font_size" value="5" min="5" max="30">
         </div>
         <div>
             <button type="submit">OK</button>
         </div>
+        {% if error %}
+        <div>{{ error }}</div>
+        {% endif %}
 
     </form>
 
