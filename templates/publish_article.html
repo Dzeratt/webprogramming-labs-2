@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block lab %}Publish Article{% endblock %}
+{% block main %}
+    <h1>Publish Article</h1>
+    <p>Are you sure you want to publish this article?</p>
+    <form action="/lab5/publish_article/{{ article_id }}" method="get">
+        <button type="submit">Publish Article</button>
+    </form>
+{% endblock %}

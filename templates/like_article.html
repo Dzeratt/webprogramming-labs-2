@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block lab %}Like Article{% endblock %}
+{% block main %}
+    <h1>Like Article</h1>
+    <p>Do you like this article? Give it a thumbs up!</p>
+    <form action="/lab5/like_article/{{ article_id }}" method="get">
+        <button type="submit">Like Article</button>
+    </form>
+{% endblock %}

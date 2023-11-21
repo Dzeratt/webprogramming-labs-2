@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block lab %}Add to Favorites{% endblock %}
+{% block main %}
+    <h1>Add to Favorites</h1>
+    <p>Add this article to your favorites?</p>
+    <form action="/lab5/add_to_favorites/{{ article_id }}" method="get">
+        <button type="submit">Add to Favorites</button>
+    </form>
+{% endblock %}

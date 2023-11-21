@@ -1,5 +1,20 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 
-{%block lab%}Лабораторная работа 5{%endblock%}
-{%block main%}
-{%endblock%}
+{% block lab %}Лабораторная работа 5{% endblock %}
+{% block main %}
+
+<h1>Формы(POST)</h1>
+<h2>Тема лабораторной - Flask и БД. Список сделанных страниц:</h2>
+<h3>{{ username }}</h3>
+<ul>
+    <li><a href="/lab5/user_articles">Просмотр заметок</a></li>
+    <li><a href="/lab5/new_article">Создание заметок</a></li>
+    <li><a href="/lab5/login">Логин</a></li>
+    <li><a href="/lab5/register">Регистрация</a></li>
+    <li><a href="/lab5/logout">Выйти</a></li>
+    <li><a href="/lab5/users">Юзеры</a></li>
+    <li><a href="/lab5/publish_article/123">publish_article</a></li>
+    <li><a href="/lab5/add_to_favorites/123">add_to_favorites</a></li>
+    <li><a href="/lab5/like_article/123">like_article</li>
+</ul>
+{% endblock %}
