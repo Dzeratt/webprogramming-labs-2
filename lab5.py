@@ -48,7 +48,7 @@ def registerPage():
     conn = dbConnect()
     cur = conn.cursor()
 
-    cur.execute("SELECT username FROM users WHERE username = %s;", (username))
+    cur.execute("SELECT username FROM users WHERE username = %s;", (username,))
 
     if cur.fetchone() is not None:
         errors.append("Пользователь с данным именем уже существует")
@@ -185,8 +185,8 @@ def userArticles():
 
 @lab5.route('/lab5/logout')
 def logout():
-    session.clear()  # Очистка данных пользовательской сессии, включая JWT-токен
-    return redirect('/lab5/')  # Перенаправление пользователя на главную страницу или иную страницу как вам угодно
+    session.clear()
+    return redirect('/lab5')
 
 
 @lab5.route('/lab5/users')
