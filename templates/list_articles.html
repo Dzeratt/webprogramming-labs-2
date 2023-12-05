@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <h2>Список ваших статей</h2>
+  {% if articles %}
+    <ul>
+      {% for article in articles %}
+        <li>
+          <strong>{{ article.title }}</strong><br>
+          {{ article.article_text }}<br>
+          <a href="{{ url_for('lab6.article_details', article_id=article.id) }}">Подробнее</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>У вас пока нет статей.</p>
+  {% endif %}
+  <a href="{{ url_for('lab6.add_article') }}">Добавить статью</a>
+{% endblock %}

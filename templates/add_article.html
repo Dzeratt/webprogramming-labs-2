@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Новая заметка</h2>
+    <form method="POST" action="{{ url_for('lab6.add_article') }}">
+        <label for="title">Заголовок:</label>
+        <input type="text" name="title" id="title" required>
+        <br>
+        <label for="article_text">Текст заметки:</label>
+        <textarea name="article_text" id="article_text" rows="4" required></textarea>
+        <br>
+        <button type="submit">Добавить</button>
+    </form>
+    {% if errors %}
+        <p style="color: red;">{{ errors }}</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('lab6.articles_list') }}">Назад к заметкам</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 6{% endblock %}
+{% block main %}
+{{username}}
+<ul>
+    <li><a href="/lab6/login">Логин</a></li>
+    <li><a href="/lab6/register">Регистрация</a></li>
+    <li><a href="/lab6/logout">Выход</a></li>
+    <li><a href="/lab6/articles">Статьи</a></li>
+</ul>
+{% endblock %}
