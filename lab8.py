@@ -17,9 +17,19 @@ courses = [
 def get_courses():
     return courses
 
+
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=["GET"])
 def get_course(course_num):
     if 0 <= course_num < len(courses):
         return courses[course_num]
+    else:
+        abort(404)
+
+
+@lab8.route('/lab8/api/courses/<int:course_num>', methods=["DELETE"])
+def del_course(course_num):
+    if 0 <= course_num < len(courses):
+        del courses[course_num]
+        return '', 204
     else:
         abort(404)
