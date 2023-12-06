@@ -43,3 +43,9 @@ def put_course(course_num):
         return courses[course_num]
     else:
         abort(404)
+
+@lab8.route('/lab8/api/courses/<int:course_num>', methods=["POST"])
+def add_course(course_num):
+    course = request.get_json()
+    courses.append(course)
+    return {"num": len(courses)-1}
