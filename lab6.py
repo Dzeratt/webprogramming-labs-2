@@ -93,9 +93,9 @@ def articles_list():
 def article_details(article_id):
     article = articles.query.get(article_id)
     if article is not None and article.user_id == current_user.id:
-        return f"Details of Article {article_id}: {article.title}; {article.article_text}"
+        return f"Детали заметки {article_id}: {article.title}; {article.article_text}"
     else:
-        return "Access denied or article not found"
+        return "Заметка не найдена"
     
 
 @lab6.route("/lab6/logout")
