@@ -1,4 +1,5 @@
 from flask import Blueprint,render_template, request, redirect, session, abort, jsonify
+from datetime import datetime
 
 lab8 = Blueprint('lab8', __name__)
 
@@ -13,9 +14,15 @@ courses = [
 ]
 
 
-@lab8.route('/lab8/api/courses/', methods=["GET"])
+@lab8.route('/lab8/api/courses/', methods=["GET", "POST"])
 def get_courses():
-    return jsonify(courses)
+    if request.method == "GET":
+        return jsonify(courses)
+    elif request.method == "POST":
+        course = request.get_json()
+        course["creation_date"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        courses.append(course)
+        return jsonify(courses)
 
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=["GET"])
@@ -47,5 +54,6 @@ def put_course(course_num):
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=["POST"])
 def add_course(course_num):
     course = request.get_json()
+    course["creation_date"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     courses.append(course)
     return {"num": len(courses)-1}

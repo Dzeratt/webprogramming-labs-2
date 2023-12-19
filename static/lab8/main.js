@@ -1,4 +1,5 @@
 function fillCourseList() {
+    console.log('fillCourseList called');
     fetch('/lab8/api/courses/')
     .then(function (data) {
         return data.json();
@@ -17,6 +18,9 @@ function fillCourseList() {
 
             let tdPrice = document.createElement('td');
             tdPrice.innerText = courses[i].price || 'бесплатно';
+
+            let tdCreationDate = document.createElement('td');
+            tdCreationDate.innerText = courses[i].creation_date;
 
             let editButton = document.createElement('button');
             editButton.innerText = 'редактировать';
@@ -37,6 +41,7 @@ function fillCourseList() {
             tr.append(tdName);
             tr.append(tdVideos);
             tr.append(tdPrice);
+            tr.append(tdCreationDate);
             tr.append(tdActions);
             tbody.append(tr);
         }
@@ -45,10 +50,12 @@ function fillCourseList() {
 
 
 function deleteCourse(num) {
-    if(! confirm('Вы точно хотите удалить курс?'))
+    console.log('deleteCourse called');
+    if(! confirm('Вы точно хотите удалить курс?')){
         return;
+    }
 
-    fetch('/lab8/api/courses/${num}', {method: 'DELETE'})
+    fetch(`/lab8/api/courses/${num}`, {method: 'DELETE'})
     .then(function() {
         fillCourseList();
     });
@@ -79,6 +86,7 @@ function addCourse() {
 
 
 function sendCourse() {
+    console.log('sendCourse called');
     const num = document.getElementById('num').value;
     const course = {
         name: document.getElementById('name').value,
@@ -86,7 +94,7 @@ function sendCourse() {
         price: document.getElementById('price').value
     }
 
-    const url = '/lab8/api/courses/${num}';
+    const url = `/lab8/api/courses/${num}`;
     const method = num ? 'PUT' : 'POST';
     fetch(url, {
         method: method,
