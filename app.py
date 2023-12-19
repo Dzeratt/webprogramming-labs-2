@@ -17,6 +17,8 @@ from lab9 import lab9
 
 app = Flask(__name__)
 
+
+
 app.secret_key = "123"
 
 user_db = 'denis_knowledge_base_orm'
